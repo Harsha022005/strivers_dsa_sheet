@@ -1,0 +1,26 @@
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        count=0
+        maxi=0
+        for i in range(len(nums)):
+            if nums[i]==1:
+                count+=1
+                maxi=max(count,maxi)
+            else:
+                count=0
+        return maxi            
+
+Summary:
+The function findMaxConsecutiveOnes finds the maximum number of consecutive 1s in a binary array.
+
+Explanation:
+count keeps track of the current consecutive 1s.
+maxi stores the maximum number of consecutive 1s encountered so far.
+The function iterates through the array:
+If the element is 1, increase count and update maxi accordingly.
+If the element is 0, reset count to 0.
+Finally, maxi is returned as the result.
+Time Complexity:
+O(N) (where N is the length of nums), as we traverse the array once.
+Space Complexity:
+O(1), since only a few variables (count and maxi) are used.
