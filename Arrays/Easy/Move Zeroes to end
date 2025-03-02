@@ -1,0 +1,21 @@
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        j=0
+        for i in range(len(nums)):
+            if nums[i]!=0:
+                nums[i],nums[j]=nums[j],nums[i]
+                j+=1
+        return nums        
+
+### Summary:  
+The given Python function **`moveZeroes`** moves all zeroes in the list **`nums`** to the end while maintaining the relative order of non-zero elements. It modifies the list **in-place** without using extra space.  
+
+#### **Explanation:**
+- **`j`** is initialized to **0**, representing the position where the next non-zero element should be placed.
+- A **loop** iterates through **`nums`**, and when a **non-zero element** is found:
+  - It **swaps** the non-zero element with the element at position **`j`**.
+  - **Increments `j`**, ensuring that the next non-zero element is placed correctly.
+- The result is a list where all **zeroes are moved to the end**, and **non-zero elements retain their order**.
