@@ -1,0 +1,18 @@
+class Solution:
+    def longestSubarray(self, arr, k):  
+        # code here
+        prefix={}
+        tot=0
+        maxi=0
+        for i in range(len(arr)):
+            tot+=arr[i]
+            if tot==k:
+                maxi=i+1
+            rem=tot-k
+            if rem in prefix :
+                l=i-prefix[rem]
+                maxi=max(maxi,l)
+            if tot not in prefix:
+                prefix[tot]=i
+        return maxi
+
