@@ -1,0 +1,37 @@
+Approach-1:
+
+class Solution:
+    def majorityElement(self, arr: List[int]) -> int:
+        count=0
+        ele=None
+        for i in range(len(arr)):
+            if count==0:
+                count+=1
+                ele=arr[i]
+            elif ele==arr[i]:
+                count+=1
+            else:
+                count-=1
+        count1=0
+        for i in range(len(arr)):
+            if ele==arr[i]:
+                count1+=1
+        if count1>len(arr)//2:
+            return ele
+        return -1
+
+Approach-2:
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        freq={}
+        for i in range(len(nums)):
+            freq[nums[i]]=freq.get(nums[i],0)+1
+        maxi=0
+        majority=None
+        for num,count in freq.items():
+            if count>maxi:
+                maxi=count
+                majority=num
+        return majority
+     
